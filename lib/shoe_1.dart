@@ -1,7 +1,7 @@
 import 'main.dart';
 import 'package:flutter/material.dart';
 import 'shoe_2.dart';
-
+import 'itembuilder.dart';
 bool select1 = false;
 bool select2 = false;
 bool select3 = false;
@@ -18,6 +18,7 @@ List img = [
   'images/shoes 7.jpg',
   'images/shoes 8.jpg',
 ];
+
 List SIZE=["6","7","8","8"];
 List price = [
   '11999.00',
@@ -42,6 +43,23 @@ class shoe1 extends StatelessWidget {
         appBar: AppBar(
           title: Center(child: Text("SHOE $n")),
           backgroundColor: Colors.deepPurpleAccent,
+          actions: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const itemadder1()),);
+
+                },
+                child: Icon(
+                  Icons.add,
+                  size: 26.0,
+                ),
+              ),
+            ),
+
+
+          ],
         ),
         body: shoe1pg(),
       ),
@@ -270,5 +288,6 @@ class _shoe1pgState extends State<shoe1pg> {
         ],
       ),
     );
+
   }
 }
